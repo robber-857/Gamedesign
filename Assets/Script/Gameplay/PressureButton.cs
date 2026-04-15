@@ -39,6 +39,11 @@ public class PressureButton : MonoBehaviour
 
         hasTriggered = true;
 
+        if (targetLifts == null || targetLifts.Length == 0)
+        {
+            Debug.LogWarning($"{name} has no target lifts assigned.", this);
+        }
+
         foreach (var lift in targetLifts)
         {
             if (lift != null)
