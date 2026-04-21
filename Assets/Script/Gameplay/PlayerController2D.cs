@@ -14,21 +14,23 @@ public class PlayerController2D : MonoBehaviour
     [SerializeField] private float groundCheckRadius = 0.12f;
     [SerializeField] private LayerMask groundLayers = ~0;
     [SerializeField] private float coyoteTime = 0.12f;
+    [SerializeField] private float groundCheckWidthMultiplier = 0.75f;
 
     private Rigidbody2D rb;
+    private Collider2D mainCollider;
     private Collider2D[] ownColliders;
     private SpriteRenderer spriteRenderer;
     private float horizontalInput;
     private bool jumpQueued;
     private float coyoteTimer;
     private bool jumpConsumed;
-    private bool wasGroundedLastFrame;
 
     public bool IsGrounded { get; private set; }
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        mainCollider = GetComponent<Collider2D>();
         ownColliders = GetComponents<Collider2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         rb.constraints |= RigidbodyConstraints2D.FreezeRotation;
@@ -39,7 +41,7 @@ public class PlayerController2D : MonoBehaviour
         horizontalInput = Input.GetAxisRaw("Horizontal");
         IsGrounded = CheckGrounded();
 
-        if (IsGrounded && !wasGroundedLastFrame)
+        if (IsGrounded && rb.linearVelocity.y <= 0.05f)
         {
             jumpConsumed = false;
         }
@@ -66,8 +68,6 @@ public class PlayerController2D : MonoBehaviour
         {
             spriteRenderer.flipX = true;
         }
-
-        wasGroundedLastFrame = IsGrounded;
     }
 
     private void FixedUpdate()
@@ -87,12 +87,18 @@ public class PlayerController2D : MonoBehaviour
 
     private bool CheckGrounded()
     {
-        if (groundCheck == null)
+        if (groundCheck == null || mainCollider == null)
         {
             return false;
         }
 
-        Collider2D[] hits = Physics2D.OverlapCircleAll(groundCheck.position, groundCheckRadius, groundLayers);
+        Bounds bounds = mainCollider.bounds;
+        Vector2 checkCenter = groundCheck.position;
+        Vector2 checkSize = new(
+            Mathf.Max(0.05f, bounds.size.x * groundCheckWidthMultiplier),
+            Mathf.Max(0.05f, groundCheckRadius * 2f));
+
+        Collider2D[] hits = Physics2D.OverlapBoxAll(checkCenter, checkSize, 0f, groundLayers);
 
         foreach (Collider2D hit in hits)
         {
@@ -132,5 +138,17 @@ public class PlayerController2D : MonoBehaviour
 
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
+
+        if (mainCollider != null)
+        {
+            Bounds bounds = mainCollider.bounds;
+            Vector3 size = new(
+                Mathf.Max(0.05f, bounds.size.x * groundCheckWidthMultiplier),
+                Mathf.Max(0.05f, groundCheckRadius * 2f),
+                0.01f);
+
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawWireCube(groundCheck.position, size);
+        }
     }
 }

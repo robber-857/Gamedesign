@@ -26,6 +26,14 @@ public class ExitDoorTrigger : MonoBehaviour
             return;
         }
 
+        LevelUIController ui = FindFirstObjectByType<LevelUIController>();
+
+        if (ui != null)
+        {
+            ui.ShowLevelComplete();
+            return;
+        }
+
         Debug.Log("Level complete.");
     }
 }
