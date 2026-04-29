@@ -2341,6 +2341,58 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!1 &1918968101
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1918968103}
+  - component: {fileID: 1918968102}
+  m_Layer: 0
+  m_Name: UIROOT
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1918968102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1918968101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1aa7ce86188c3f64899f3fb0ddfa21a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LevelUIController
+  levelTitle: Level 3  Switchback Climb
+  levelObjective: Chain the switches, avoid hazards, and push to the upper wing.
+  controlsHint: WASD Move   Space Jump
+  completionMessage: Upper wing unlocked!
+  panelColor: {r: 0.08, g: 0.11, b: 0.18, a: 0.75}
+  accentColor: {r: 0.83, g: 0.71, b: 0.46, a: 1}
+  buttonColor: {r: 0.24, g: 0.34, b: 0.22, a: 0.95}
+  buttonTextColor: {r: 0.96, g: 0.95, b: 0.9, a: 1}
+--- !u!4 &1918968103
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1918968101}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1929531200
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2644,3 +2696,4 @@ SceneRoots:
   - {fileID: 1694418865}
   - {fileID: 274058383}
   - {fileID: 673971594}
+  - {fileID: 1918968103}

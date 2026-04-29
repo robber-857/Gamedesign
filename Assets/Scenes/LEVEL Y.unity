@@ -3900,9 +3900,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1aa7ce86188c3f64899f3fb0ddfa21a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelUIController
-  levelTitle: Level 0  Tutorial
-  levelObjective: Press switches, ride lifts, reach the exit.
+  levelTitle: Level Y  Grand Exhibit
+  levelObjective: Master the full museum course and claim the final exit.
   controlsHint: WASD Move   Space Jump
+  completionMessage: Museum complete!
   panelColor: {r: 0.08, g: 0.11, b: 0.18, a: 0.75}
   accentColor: {r: 0.83, g: 0.71, b: 0.46, a: 1}
   buttonColor: {r: 0.24, g: 0.34, b: 0.22, a: 0.95}
