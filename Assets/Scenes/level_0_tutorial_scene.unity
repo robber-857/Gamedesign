@@ -619,7 +619,7 @@ Transform:
   m_GameObject: {fileID: 445072347}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.48, y: 1.48, z: 0}
+  m_LocalPosition: {x: -7.63, y: 1.48, z: 0}
   m_LocalScale: {x: 0.15012261, y: 0.17000839, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2813,7 +2813,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ExitDoorTrigger
   playerTag: Player
-  nextSceneName: 
+  nextSceneName: level_1
 --- !u!61 &1557707970
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3798,7 +3798,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1026209440916172118, guid: 99b9b79693035424f9275fcba631601e, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.3360791
+      value: 1.0150595
       objectReference: {fileID: 0}
     - target: {fileID: 1026209440916172118, guid: 99b9b79693035424f9275fcba631601e, type: 3}
       propertyPath: m_LocalScale.y
@@ -3810,11 +3810,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1026209440916172118, guid: 99b9b79693035424f9275fcba631601e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.02
+      value: -6.13
       objectReference: {fileID: 0}
     - target: {fileID: 1026209440916172118, guid: 99b9b79693035424f9275fcba631601e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7.29
+      value: 7.55
       objectReference: {fileID: 0}
     - target: {fileID: 1026209440916172118, guid: 99b9b79693035424f9275fcba631601e, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3899,6 +3899,7 @@ MonoBehaviour:
   levelTitle: Level 0  Tutorial
   levelObjective: Press switches, ride lifts, reach the exit.
   controlsHint: WASD Move   Space Jump
+  completionMessage: Congratulations!
   panelColor: {r: 0.08, g: 0.11, b: 0.18, a: 0.75}
   accentColor: {r: 0.83, g: 0.71, b: 0.46, a: 1}
   buttonColor: {r: 0.24, g: 0.34, b: 0.22, a: 0.95}
