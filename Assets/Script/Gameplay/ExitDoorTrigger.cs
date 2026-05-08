@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-[RequireComponent(typeof(Collider2D))]
+[RequireComponent(typeof(BoxCollider2D))]
 public class ExitDoorTrigger : MonoBehaviour
 {
     [SerializeField] private string playerTag = "Player";
@@ -35,5 +35,11 @@ public class ExitDoorTrigger : MonoBehaviour
         }
 
         Debug.Log("Level complete.");
+    }
+
+    public void Configure(string tagName, string sceneName)
+    {
+        playerTag = tagName;
+        nextSceneName = sceneName;
     }
 }

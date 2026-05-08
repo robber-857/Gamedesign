@@ -7,6 +7,9 @@
 [Uu]ser[Ss]ettings/
 [Mm]emoryCaptures/
 [Rr]ecordings/
+output/
+tmp/
+tools/
 
 # Visual Studio / Rider / VS Code
 .vs/

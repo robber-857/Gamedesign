@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 164520eb98c12c64c9224b845f24196a, type: 3}
+  m_Name: "\u5BF9\u8BDD\u5185\u5BB92"
+  m_EditorClassIdentifier: 
+  dialogData:
+  - sprite: {fileID: 1002920871, guid: 101a9b11497ac2241a3fc1b1181844ce, type: 3}
+    name: "\u72FC"
+    content: "\u5C0F\u7EA2\u5E3D...\u4F60\u7EC8\u4E8E\u6765\u4E86\u2026\u54E6\uFF0C\u8FD8\u6709\u65B0\u7684\u730E\u7269\u3002"
+    audioclip: {fileID: 8300000, guid: febdd10b33094d0428f2cbc88458f012, type: 3}
+  - sprite: {fileID: 1397974659, guid: f5bba7e4c1ddce147a5f8e119e42f484, type: 3}
+    name: "\u5C0F\u7EA2\u5E3D"
+    content: "\u4ED6\u7684\u7075\u9B42\u4E0D\u5C5E\u4E8E\u4F60\u7684\u83DC\u5355\uFF0C\u72FC\uFF0C\u522B\u5BF9\u4ED6\u51FA\u624B\u3002"
+    audioclip: {fileID: 8300000, guid: d9bfba5148e5cc64193065809417580f, type: 3}
+  - sprite: {fileID: 1397974659, guid: f5bba7e4c1ddce147a5f8e119e42f484, type: 3}
+    name: "\u4E3B\u89D2"
+    content: "\u6211\u4EEC\u975E\u8981\u548C\u4F1A\u8BF4\u8BDD\u7684\u72FC\u4E89\u8BBA\u5417\uFF1F"
+    audioclip: {fileID: 8300000, guid: 10d49d03dc29188429aac78ec234149b, type: 3}
+  - sprite: {fileID: 21300000, guid: 0dcc71a00a46987489d313b08f7419b6, type: 3}
+    name: "\u72FC"
+    content: "\u53EF\u601C\u7684\u65C5\u4EBA\uFF0C\u4F60\u8E29\u788E\u7684\u6BCF\u7247\u843D\u53F6\u90FD\u5728\u5411\u5973\u738B\u6B4C\u5531...\u73B0\u5728\uFF0C\u8BE5\u652F\u4ED8\u95EF\u5165\u7AE5\u8BDD\u7684\u4EE3\u4EF7\u4E86\uFF01"
+    audioclip: {fileID: 8300000, guid: 10d49d03dc29188429aac78ec234149b, type: 3}
+  - sprite: {fileID: 21300000, guid: 13d56bbfec04b92418e025676bd5fd09, type: 3}
+    name: "\u5C0F\u7EA2\u5E3D"
+    content: "\u5982\u679C\u4F60\u548C\u72FC\u4EBA\u662F\u4E00\u4F19\u7684\u2026
+      \u6211\u4F1A\u4EB2\u624B\u4E3A\u4F60\u9001\u846C\u3002"
+    audioclip: {fileID: 8300000, guid: 10d49d03dc29188429aac78ec234149b, type: 3}
+  - sprite: {fileID: 21300000, guid: 55c88303371b71847aebf489e6f9d16a, type: 3}
+    name: "\u4E3B\u89D2"
+    content: "\u6240\u4EE5\u4F60\u6709\u79BB\u5F00\u8FD9\u8FB9\u7684\u65B9\u6CD5\u5417\uFF1F"
+    audioclip: {fileID: 8300000, guid: 10d49d03dc29188429aac78ec234149b, type: 3}
+  - sprite: {fileID: 21300000, guid: 13d56bbfec04b92418e025676bd5fd09, type: 3}
+    name: "\u5C0F\u7EA2\u5E3D"
+    content: "\u51C6\u5907\u597D\u6218\u6597\uFF01"
+    audioclip: {fileID: 8300000, guid: 10d49d03dc29188429aac78ec234149b, type: 3}

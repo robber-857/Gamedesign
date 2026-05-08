@@ -1,0 +1,1007 @@
+fileFormatVersion: 2
+guid: ad0e0d4c28cd2e0468dae545ee59cfcb
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 120
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: MV Icons Pixel Dailies 2 - ALL_0
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 96
+        width: 28
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77e77c7bfed7c124d911fb1805b04ad3
+      internalID: 2060574757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 99
+        width: 32
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0930e73c5dfefc3469edad219eafff50
+      internalID: -1770791806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MV Icons Pixel Dailies 2 - ALL_2
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 98
+        width: 9
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7bddafd33b4d05549b6c5b3b54554563
+      internalID: 1441075432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MV Icons Pixel Dailies 2 - ALL_3
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 111
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63cab8279e0f96044a13b55727cdfc17
+      internalID: 391413489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MV Icons Pixel Dailies 2 - ALL_4
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 97
+        width: 30
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd285351bf2ddc840a87002381ac20d9
+      internalID: 871767868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MV Icons Pixel Dailies 2 - ALL_5
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 97
+        width: 30
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68b1ea8cf27a308439eb3065687c453e
+      internalID: -982474272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MV Icons Pixel Dailies 2 - ALL_6
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 64
+        width: 32
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51cbf46889de80e40ae511e467f3a6ef
+      internalID: -1072297817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MV Icons Pixel Dailies 2 - ALL_7
+      rect:
+        serializedVersion: 2
+        x: 321
+        y: 97
+        width: 31
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 256863b631998b7409f833c5757b0538
+      internalID: 567920038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MV Icons Pixel Dailies 2 - ALL_8
+      rect:
+        serializedVersion: 2
+        x: 356
+        y: 106
+        width: 16
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5754a41dc35a40d40b245fa540c62c46
+      internalID: -840605567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MV Icons Pixel Dailies 2 - ALL_9
+      rect:
+        serializedVersion: 2
+        x: 369
+        y: 107
+        width: 9
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1f4e97fdb3897b4bbd601ad5b9f7cf1
+      internalID: -1136754500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MV Icons Pixel Dailies 2 - ALL_10
+      rect:
+        serializedVersion: 2
+        x: 385
+        y: 96
+        width: 31
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13bcdcfdf6399694b90b487d6015feb4
+      internalID: 708239803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MV Icons Pixel Dailies 2 - ALL_11
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 97
+        width: 32
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2962acf5344f904981ba2345ca28fba
+      internalID: 2078011076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MV Icons Pixel Dailies 2 - ALL_12
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 103
+        width: 16
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27b6138d4b110a74bae75f53ce62425a
+      internalID: 1509211653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MV Icons Pixel Dailies 2 - ALL_13
+      rect:
+        serializedVersion: 2
+        x: 358
+        y: 98
+        width: 17
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc4cfcb8473a2474db34bdece7512e9c
+      internalID: -1425224156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MV Icons Pixel Dailies 2 - ALL_14
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 66
+        width: 30
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d6d1d02d6ba1e848b9a0eb43a681922
+      internalID: -1607899513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MV Icons Pixel Dailies 2 - ALL_15
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 70
+        width: 30
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9aea472537ce57a48aa282068c5ed99b
+      internalID: -1259125242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MV Icons Pixel Dailies 2 - ALL_16
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 67
+        width: 30
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2be05970ff8c9b459762bc0a032472b
+      internalID: -1452062918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MV Icons Pixel Dailies 2 - ALL_17
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 66
+        width: 64
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7c4eaeea82b18744b02ef3c0eaaa6e0
+      internalID: -1859540319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MV Icons Pixel Dailies 2 - ALL_18
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 74
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18000a5d04344a446a877e0fe2b43375
+      internalID: -1551832019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MV Icons Pixel Dailies 2 - ALL_19
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 32
+        width: 23
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 755d95bb33bc47e4081f3fa63a8f7083
+      internalID: -773131845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MV Icons Pixel Dailies 2 - ALL_20
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 32
+        width: 96
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4cf7c83fd06ba8e42816b4ed74747633
+      internalID: -892077380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MV Icons Pixel Dailies 2 - ALL_21
+      rect:
+        serializedVersion: 2
+        x: 321
+        y: 66
+        width: 30
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 858d782417780fa4b8a05519d04c7e32
+      internalID: 1660156267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MV Icons Pixel Dailies 2 - ALL_22
+      rect:
+        serializedVersion: 2
+        x: 356
+        y: 70
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d83ba9ee9f63c694d93ac80f37d59b06
+      internalID: 1939743706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MV Icons Pixel Dailies 2 - ALL_23
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 73
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ee7909423f04ba42a4107b23d862d9d
+      internalID: -1449144795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MV Icons Pixel Dailies 2 - ALL_24
+      rect:
+        serializedVersion: 2
+        x: 364
+        y: 66
+        width: 84
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f7a1499c8295674da70f645a0aa7fdb
+      internalID: -304416993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MV Icons Pixel Dailies 2 - ALL_25
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 65
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08c265cb868392f479f21632a7ced1a0
+      internalID: -1696694999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MV Icons Pixel Dailies 2 - ALL_26
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 33
+        width: 30
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e08d93748fe605e4aa8d850225c465aa
+      internalID: 871908862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MV Icons Pixel Dailies 2 - ALL_27
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 35
+        width: 28
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3ca24ea896276242afdb788604d29d4
+      internalID: -553472701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MV Icons Pixel Dailies 2 - ALL_28
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 33
+        width: 30
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a48c3a04bead0b42aaef6d6feb5b5bc
+      internalID: 1298438572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MV Icons Pixel Dailies 2 - ALL_29
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 35
+        width: 28
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f70eff32e53cae74788dddcb54fe424d
+      internalID: -273924813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MV Icons Pixel Dailies 2 - ALL_30
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 32
+        width: 18
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2cdd60554e81983469d8376271c78a88
+      internalID: 867485927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MV Icons Pixel Dailies 2 - ALL_31
+      rect:
+        serializedVersion: 2
+        x: 293
+        y: 32
+        width: 24
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04059be90e23eb148ba19996b8b56b0e
+      internalID: 917628211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MV Icons Pixel Dailies 2 - ALL_32
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 32
+        width: 32
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c4e7436ced31ce40bcc510969088cd8
+      internalID: 490923476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MV Icons Pixel Dailies 2 - ALL_33
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa7423bd6bc197d4fa0c2199e6554e85
+      internalID: 1328997512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MV Icons Pixel Dailies 2 - ALL_34
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 32
+        width: 26
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0f071aebdf5df047a084a3e0c86e323
+      internalID: 258540755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MV Icons Pixel Dailies 2 - ALL_35
+      rect:
+        serializedVersion: 2
+        x: 417
+        y: 33
+        width: 31
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4dcefc6a94400764f880642847b16228
+      internalID: 2144485274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MV Icons Pixel Dailies 2 - ALL_36
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 31
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e22c6d7b19b39d479671ecd8951ff90
+      internalID: -1975387428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MV Icons Pixel Dailies 2 - ALL_37
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 1
+        width: 30
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14f5445f9e6f5a340af8c65935c31524
+      internalID: -1510048073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MV Icons Pixel Dailies 2 - ALL_38
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 1
+        width: 64
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63d16ce1a8501da479f97f3715cd6d67
+      internalID: -1918206650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MV Icons Pixel Dailies 2 - ALL_39
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 0
+        width: 30
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62ab7d58d1f2aac4495bcc5c3efe2957
+      internalID: -790600188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      1: -1770791806
+      MV Icons Pixel Dailies 2 - ALL_0: 2060574757
+      MV Icons Pixel Dailies 2 - ALL_10: 708239803
+      MV Icons Pixel Dailies 2 - ALL_11: 2078011076
+      MV Icons Pixel Dailies 2 - ALL_12: 1509211653
+      MV Icons Pixel Dailies 2 - ALL_13: -1425224156
+      MV Icons Pixel Dailies 2 - ALL_14: -1607899513
+      MV Icons Pixel Dailies 2 - ALL_15: -1259125242
+      MV Icons Pixel Dailies 2 - ALL_16: -1452062918
+      MV Icons Pixel Dailies 2 - ALL_17: -1859540319
+      MV Icons Pixel Dailies 2 - ALL_18: -1551832019
+      MV Icons Pixel Dailies 2 - ALL_19: -773131845
+      MV Icons Pixel Dailies 2 - ALL_2: 1441075432
+      MV Icons Pixel Dailies 2 - ALL_20: -892077380
+      MV Icons Pixel Dailies 2 - ALL_21: 1660156267
+      MV Icons Pixel Dailies 2 - ALL_22: 1939743706
+      MV Icons Pixel Dailies 2 - ALL_23: -1449144795
+      MV Icons Pixel Dailies 2 - ALL_24: -304416993
+      MV Icons Pixel Dailies 2 - ALL_25: -1696694999
+      MV Icons Pixel Dailies 2 - ALL_26: 871908862
+      MV Icons Pixel Dailies 2 - ALL_27: -553472701
+      MV Icons Pixel Dailies 2 - ALL_28: 1298438572
+      MV Icons Pixel Dailies 2 - ALL_29: -273924813
+      MV Icons Pixel Dailies 2 - ALL_3: 391413489
+      MV Icons Pixel Dailies 2 - ALL_30: 867485927
+      MV Icons Pixel Dailies 2 - ALL_31: 917628211
+      MV Icons Pixel Dailies 2 - ALL_32: 490923476
+      MV Icons Pixel Dailies 2 - ALL_33: 1328997512
+      MV Icons Pixel Dailies 2 - ALL_34: 258540755
+      MV Icons Pixel Dailies 2 - ALL_35: 2144485274
+      MV Icons Pixel Dailies 2 - ALL_36: -1975387428
+      MV Icons Pixel Dailies 2 - ALL_37: -1510048073
+      MV Icons Pixel Dailies 2 - ALL_38: -1918206650
+      MV Icons Pixel Dailies 2 - ALL_39: -790600188
+      MV Icons Pixel Dailies 2 - ALL_4: 871767868
+      MV Icons Pixel Dailies 2 - ALL_5: -982474272
+      MV Icons Pixel Dailies 2 - ALL_6: -1072297817
+      MV Icons Pixel Dailies 2 - ALL_7: 567920038
+      MV Icons Pixel Dailies 2 - ALL_8: -840605567
+      MV Icons Pixel Dailies 2 - ALL_9: -1136754500
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

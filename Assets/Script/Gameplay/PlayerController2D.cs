@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-[RequireComponent(typeof(Collider2D))]
+[RequireComponent(typeof(CapsuleCollider2D))]
 [RequireComponent(typeof(SpriteRenderer))]
 public class PlayerController2D : MonoBehaviour
 {
@@ -26,6 +26,8 @@ public class PlayerController2D : MonoBehaviour
     private bool jumpConsumed;
 
     public bool IsGrounded { get; private set; }
+    public bool CanMove { get; set; } = true;
+    public bool JumpBlocked { get; private set; }
 
     private void Awake()
     {
@@ -55,7 +57,7 @@ public class PlayerController2D : MonoBehaviour
             coyoteTimer -= Time.deltaTime;
         }
 
-        if (Input.GetKeyDown(KeyCode.Space) && coyoteTimer > 0f && !jumpConsumed)
+        if (Input.GetKeyDown(KeyCode.Space) && !JumpBlocked && coyoteTimer > 0f && !jumpConsumed)
         {
             jumpQueued = true;
         }
@@ -72,7 +74,15 @@ public class PlayerController2D : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.linearVelocity = new Vector2(horizontalInput * moveSpeed, rb.linearVelocity.y);
+        if (CanMove)
+        {
+            rb.linearVelocity = new Vector2(horizontalInput * moveSpeed, rb.linearVelocity.y);
+        }
+
+        if (JumpBlocked)
+        {
+            jumpQueued = false;
+        }
 
         if (!jumpQueued)
         {
@@ -83,6 +93,42 @@ public class PlayerController2D : MonoBehaviour
         jumpQueued = false;
         coyoteTimer = 0f;
         jumpConsumed = true;
+    }
+
+    public void Configure(
+        Transform customGroundCheck,
+        float customMoveSpeed = 4.5f,
+        float customJumpForce = 8f,
+        float customGroundCheckRadius = 0.14f,
+        float customCoyoteTime = 0.15f,
+        float customGroundCheckWidthMultiplier = 0.9f)
+    {
+        groundCheck = customGroundCheck;
+        moveSpeed = customMoveSpeed;
+        jumpForce = customJumpForce;
+        groundCheckRadius = customGroundCheckRadius;
+        coyoteTime = customCoyoteTime;
+        groundCheckWidthMultiplier = customGroundCheckWidthMultiplier;
+    }
+
+    public void Bounce(float bounceVelocity)
+    {
+        rb.linearVelocity = new Vector2(rb.linearVelocity.x, bounceVelocity);
+        jumpQueued = false;
+        coyoteTimer = coyoteTime;
+        jumpConsumed = false;
+        IsGrounded = false;
+    }
+
+    public void SetJumpBlocked(bool blocked)
+    {
+        JumpBlocked = blocked;
+
+        if (blocked)
+        {
+            jumpQueued = false;
+            coyoteTimer = 0f;
+        }
     }
 
     private bool CheckGrounded()
@@ -119,6 +165,11 @@ public class PlayerController2D : MonoBehaviour
             }
 
             if (isOwnCollider)
+            {
+                continue;
+            }
+
+            if (hit.GetComponentInParent<JellyEnemyController>() != null)
             {
                 continue;
             }
