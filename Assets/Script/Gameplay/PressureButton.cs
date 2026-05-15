@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[RequireComponent(typeof(Collider2D))]
+[RequireComponent(typeof(BoxCollider2D))]
 public class PressureButton : MonoBehaviour
 {
     [SerializeField] private LiftPlatform[] targetLifts;
@@ -56,6 +56,14 @@ public class PressureButton : MonoBehaviour
         {
             spriteRenderer.color = activatedColor;
         }
+    }
+
+    public void Configure(LiftPlatform[] lifts, string tagName = "Player", bool onlyOnce = true)
+    {
+        targetLifts = lifts;
+        requiredTag = tagName;
+        triggerOnlyOnce = onlyOnce;
+        ResetVisual();
     }
 
     public void ResetVisual()

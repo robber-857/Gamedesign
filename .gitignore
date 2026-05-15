@@ -7,6 +7,11 @@
 [Uu]ser[Ss]ettings/
 [Mm]emoryCaptures/
 [Rr]ecordings/
+output/
+tmp/
+tools/
+Assets/_Recovery/
+Assets/_Recovery.meta
 
 # Visual Studio / Rider / VS Code
 .vs/
