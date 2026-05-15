@@ -35,7 +35,7 @@ Open the project from the repository root in Unity Hub.
 ## Code Layout
 
 - `Assets/Script/Gameplay/`: current gameplay controllers for levels 0-3, cover screen, menu, checkpoints, hazards, springs, audio, moving platforms, and player movement.
-- `Assets/脚本/`: legacy gameplay scripts still used by Level 4 and some shared prefabs. These are kept because the active scene references them.
+- `Assets/Script/Legacy/`: legacy gameplay scripts still used by Level 4 and some shared prefabs. These are kept because the active scene references them.
 - `Assets/Resources/`: runtime-loaded cover image and spring bounce audio.
 
 This branch intentionally avoids publishing Unity recovery files, obsolete scenes, and duplicate or unreferenced script changes.
