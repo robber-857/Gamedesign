@@ -311,7 +311,7 @@ public class LevelOneBootstrap : MonoBehaviour
         }
 
         ui.Configure(
-            "Level 1  Curator's Shortcut",
+            "Level 1 Yixue Shi",
             "Wake both exhibit lifts and reach the archive door.",
             "WASD Move   Space Jump",
             "Archive unlocked!");

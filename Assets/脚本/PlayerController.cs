@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
     private float originalGravity; 
 
     private Rigidbody2D rb;
+    private Collider2D[] ownColliders;
     private bool isGrounded; // �Ƿ��ڵ����ϣ������ж�������
     public float horizontalInput; // ˮƽ����
 
@@ -40,15 +41,18 @@ public class PlayerController : MonoBehaviour
 
     // ����Animator���������Ƶ��GetComponent��
     private Animator anim;
+    private Vector3 initialScale;
     
     public bool canMove = true;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        ownColliders = GetComponents<Collider2D>();
         originalGravity = rb.gravityScale;
         // ����Animator���
         anim = GetComponent<Animator>();
+        initialScale = transform.localScale;
     }
 
     private void OnCollisionStay2D(Collision2D other)
@@ -234,13 +238,35 @@ public class PlayerController : MonoBehaviour
     // ����Ƿ��ڵ�����
     private void CheckGrounded()
     {
-        // �Ӽ������·������߼�����
-        isGrounded = Physics2D.Raycast(
+        if (groundCheckPoint == null)
+        {
+            isGrounded = false;
+            return;
+        }
+
+        LayerMask raycastMask = groundLayer.value == 0
+            ? Physics2D.DefaultRaycastLayers
+            : groundLayer;
+
+        RaycastHit2D[] hits = Physics2D.RaycastAll(
             groundCheckPoint.position,
             Vector2.down,
             groundCheckDistance,
-            groundLayer
+            raycastMask
         );
+
+        isGrounded = false;
+
+        foreach (RaycastHit2D hit in hits)
+        {
+            if (hit.collider == null || hit.collider.isTrigger || IsOwnCollider(hit.collider))
+            {
+                continue;
+            }
+
+            isGrounded = true;
+            break;
+        }
 
         if (isGrounded)
         {
@@ -250,16 +276,30 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private bool IsOwnCollider(Collider2D other)
+    {
+        if (ownColliders == null)
+        {
+            return false;
+        }
+
+        foreach (Collider2D ownCollider in ownColliders)
+        {
+            if (other == ownCollider)
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     // ��ת��ɫ����
     private void FlipCharacter()
     {
         if (horizontalInput != 0)
         {
-            transform.localScale = new Vector3(
-                horizontalInput > 0 ? 0.3234171f : -0.3234171f,
-                transform.localScale.y,
-                transform.localScale.z
-            );
+            SetFacingDirection(horizontalInput);
         }
     }
 
@@ -287,14 +327,22 @@ public class PlayerController : MonoBehaviour
         }
 
         //����ת����
-        if (direction.x >= 0)
+        SetFacingDirection(direction.x);
+    }
+
+    private void SetFacingDirection(float directionX)
+    {
+        if (Mathf.Approximately(directionX, 0f))
         {
-            transform.localScale = new Vector3(1, 1, 1);
+            return;
         }
-        else
-        {
-            transform.localScale = new Vector3(-1, 1, 1);
-        }
+
+        float facingSign = directionX > 0f ? 1f : -1f;
+        transform.localScale = new Vector3(
+            Mathf.Abs(initialScale.x) * facingSign,
+            initialScale.y,
+            initialScale.z
+        );
     }
 
     //��ʼ�Զ��ƶ�

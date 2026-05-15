@@ -15,6 +15,7 @@ public class IceGroundAddForce : MonoBehaviour
     [Header("Ground Check")]
     public float footTolerance = 0.12f;
     public float horizontalPadding = 0.05f;
+    public bool includeTaggedIceGround = true;
 
     private Collider2D[] iceColliders;
     private Collider2D playerCollider;
@@ -24,7 +25,7 @@ public class IceGroundAddForce : MonoBehaviour
 
     private void Awake()
     {
-        iceColliders = GetComponentsInChildren<Collider2D>();
+        RefreshIceColliders();
         FindPlayer();
     }
 
@@ -37,7 +38,7 @@ public class IceGroundAddForce : MonoBehaviour
 
         if (iceColliders == null || iceColliders.Length == 0)
         {
-            iceColliders = GetComponentsInChildren<Collider2D>();
+            RefreshIceColliders();
         }
 
         if (playerRb == null || playerCollider == null)
@@ -45,17 +46,15 @@ public class IceGroundAddForce : MonoBehaviour
             return;
         }
 
+        if (transform == player)
+        {
+            SetPlayerMovementEnabled(true);
+            return;
+        }
+
         bool playerOnIce = IsPlayerStandingOnIce();
 
-        if (playerController != null)
-        {
-            playerController.canMove = !playerOnIce;
-        }
-
-        if (playerController2D != null)
-        {
-            playerController2D.CanMove = !playerOnIce;
-        }
+        SetPlayerMovementEnabled(!playerOnIce);
 
         if (!playerOnIce)
         {
@@ -75,14 +74,19 @@ public class IceGroundAddForce : MonoBehaviour
 
     private void OnDisable()
     {
+        SetPlayerMovementEnabled(true);
+    }
+
+    private void SetPlayerMovementEnabled(bool enabled)
+    {
         if (playerController != null)
         {
-            playerController.canMove = true;
+            playerController.canMove = enabled;
         }
 
         if (playerController2D != null)
         {
-            playerController2D.CanMove = true;
+            playerController2D.CanMove = enabled;
         }
     }
 
@@ -109,6 +113,31 @@ public class IceGroundAddForce : MonoBehaviour
         playerController2D = player.GetComponent<PlayerController2D>();
     }
 
+    private void RefreshIceColliders()
+    {
+        iceColliders = GetComponentsInChildren<Collider2D>();
+
+        if (!includeTaggedIceGround || iceColliders.Length > 0)
+        {
+            return;
+        }
+
+        GameObject[] iceObjects = GameObject.FindGameObjectsWithTag("IceGround");
+        var colliders = new System.Collections.Generic.List<Collider2D>();
+
+        foreach (GameObject iceObject in iceObjects)
+        {
+            if (iceObject == null || iceObject.transform == transform)
+            {
+                continue;
+            }
+
+            colliders.AddRange(iceObject.GetComponentsInChildren<Collider2D>());
+        }
+
+        iceColliders = colliders.ToArray();
+    }
+
     private bool IsPlayerStandingOnIce()
     {
         Bounds playerBounds = playerCollider.bounds;
@@ -121,9 +150,14 @@ public class IceGroundAddForce : MonoBehaviour
 
         foreach (Collider2D hit in hits)
         {
+            if (hit == null || hit == playerCollider)
+            {
+                continue;
+            }
+
             foreach (Collider2D iceCollider in iceColliders)
             {
-                if (hit == iceCollider)
+                if (iceCollider != null && iceCollider != playerCollider && hit == iceCollider)
                 {
                     return true;
                 }

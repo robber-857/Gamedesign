@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+
 public class DeathAreaTrigger : MonoBehaviour
 {
     public GameObject item;
@@ -12,7 +12,18 @@ public class DeathAreaTrigger : MonoBehaviour
     { 
         if(collision.gameObject.tag == "Player")
         {
-            item.gameObject.SetActive(true);
+            LevelUIController ui = LevelUIController.FindOrCreate();
+
+            if (ui != null)
+            {
+                ui.ShowFailure();
+                return;
+            }
+
+            if (item != null)
+            {
+                item.gameObject.SetActive(true);
+            }
         }
     }
 }

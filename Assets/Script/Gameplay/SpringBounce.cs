@@ -11,10 +11,14 @@ public class SpringBounce : MonoBehaviour
     [SerializeField] private Animator springAnimator;
     [SerializeField] private string bounceAnimationState = "New Animation";
     [SerializeField] private float animationDuration = 0.34f;
+    [SerializeField] private AudioSource bounceAudioSource;
+    [SerializeField] private AudioClip bounceSound;
+    [SerializeField] private string fallbackBounceSoundResourcePath = "Audio/spring_bounce";
 
     private Collider2D springCollider;
     private bool isPlayerTouching;
     private Coroutine animationRoutine;
+    private static AudioClip cachedFallbackBounceSound;
 
     private void Awake()
     {
@@ -23,6 +27,16 @@ public class SpringBounce : MonoBehaviour
         if (springAnimator == null)
         {
             springAnimator = GetComponent<Animator>();
+        }
+
+        if (bounceAudioSource == null)
+        {
+            bounceAudioSource = GetComponent<AudioSource>();
+        }
+
+        if (bounceSound == null && bounceAudioSource != null)
+        {
+            bounceSound = bounceAudioSource.clip;
         }
 
         ResetSpringAnimation();
@@ -78,8 +92,42 @@ public class SpringBounce : MonoBehaviour
             isPlayerTouching = true;
             velocity.y = bounceVelocity;
             playerBody.linearVelocity = velocity;
+            PlayBounceSound();
             PlaySpringAnimationOnce();
         }
+    }
+
+    private void PlayBounceSound()
+    {
+        AudioClip clip = GetBounceSound();
+
+        if (clip == null)
+        {
+            return;
+        }
+
+        if (bounceAudioSource == null)
+        {
+            bounceAudioSource = gameObject.AddComponent<AudioSource>();
+            bounceAudioSource.playOnAwake = false;
+        }
+
+        bounceAudioSource.PlayOneShot(clip);
+    }
+
+    private AudioClip GetBounceSound()
+    {
+        if (bounceSound != null)
+        {
+            return bounceSound;
+        }
+
+        if (cachedFallbackBounceSound == null && !string.IsNullOrWhiteSpace(fallbackBounceSoundResourcePath))
+        {
+            cachedFallbackBounceSound = Resources.Load<AudioClip>(fallbackBounceSoundResourcePath);
+        }
+
+        return cachedFallbackBounceSound;
     }
 
     private bool IsValidBounceContact(Collider2D playerCollider, Rigidbody2D playerBody)

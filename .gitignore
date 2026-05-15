@@ -10,6 +10,8 @@
 output/
 tmp/
 tools/
+Assets/_Recovery/
+Assets/_Recovery.meta
 
 # Visual Studio / Rider / VS Code
 .vs/

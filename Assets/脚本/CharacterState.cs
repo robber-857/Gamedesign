@@ -173,8 +173,16 @@ public class CharacterState : MonoBehaviour
             else if(tag == "Player")
             {
                 GetComponent<Animator>().SetTrigger("Die");
-                GameObject.Destroy(gameObject, 2);
-                GamevOverUI.SetActive(true);
+                LevelUIController ui = LevelUIController.FindOrCreate();
+
+                if (ui != null)
+                {
+                    ui.ShowFailure();
+                }
+                else if (GamevOverUI != null)
+                {
+                    GamevOverUI.SetActive(true);
+                }
             } 
 
             

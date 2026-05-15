@@ -19,7 +19,7 @@ public class HazardResetZone : MonoBehaviour
             return;
         }
 
-        LevelUIController ui = FindFirstObjectByType<LevelUIController>();
+        LevelUIController ui = LevelUIController.FindOrCreate();
 
         if (ui != null)
         {

@@ -14,18 +14,17 @@ public class LevelMenuController : MonoBehaviour
     }
 
     [Header("Text")]
-    [SerializeField] private string menuTitle = "Museum Levels";
+    [SerializeField] private string menuTitle = "Forest Levels";
     [SerializeField] private string subtitle = "Choose a level";
 
     [Header("Levels")]
     [SerializeField] private LevelEntry[] levels =
     {
-        new() { label = "Level 0", sceneName = "level_0_tutorial_scene" },
+        new() { label = "Level 0", sceneName = "Level_0" },
         new() { label = "Level 1", sceneName = "level_1" },
         new() { label = "Level 2", sceneName = "level_2" },
-        new() { label = "Level 3", sceneName = "Thirddev" },
-        new() { label = "Level 4", sceneName = "level_4" },
-        new() { label = "Level 5", sceneName = "LEVEL Y" },
+        new() { label = "Level 3", sceneName = "level_3" },
+        new() { label = "Level 4", sceneName = "Level_4" },
     };
 
     [Header("Colors")]

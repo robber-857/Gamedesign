@@ -3,6 +3,8 @@ using UnityEngine.SceneManagement;
 
 public class ButtonManger : MonoBehaviour
 {
+    private const string CoverSceneName = "Cover";
+
     public void LoadScene(int scene)
     {
         SceneManager.LoadScene(scene);
@@ -20,6 +22,7 @@ public class ButtonManger : MonoBehaviour
 
     public void Quit()
     {
-        Application.Quit();
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(CoverSceneName);
     }
 }

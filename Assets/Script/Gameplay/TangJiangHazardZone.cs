@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 public class TangJiangHazardZone : MonoBehaviour
 {
     [SerializeField] private string playerTag = "Player";
-    [SerializeField] private string deathTitle = "Dead";
+    [SerializeField] private string deathTitle = "Take a breath";
     [SerializeField] private string deathMessage = "You fell into the syrup.";
     [SerializeField] private bool reloadSceneWhenNoUi = true;
 
@@ -52,7 +52,7 @@ public class TangJiangHazardZone : MonoBehaviour
 
         triggered = true;
 
-        LevelUIController ui = FindFirstObjectByType<LevelUIController>();
+        LevelUIController ui = LevelUIController.FindOrCreate();
 
         if (ui != null)
         {

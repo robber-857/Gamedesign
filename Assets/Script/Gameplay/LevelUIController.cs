@@ -6,16 +6,13 @@ using UnityEngine.UI;
 public class LevelUIController : MonoBehaviour
 {
     [Header("Text")]
-    [SerializeField] private string levelTitle = "Level 0  Tutorial";
-    [SerializeField] private string levelObjective = "Press switches, ride lifts, reach the exit.";
-    [SerializeField] private string controlsHint = "WASD Move   Space Jump";
+    [SerializeField] private string levelTitle = "Level 0 Tutorial";
+    [SerializeField] private string levelObjective = "";
+    [SerializeField] private string controlsHint = "";
     [SerializeField] private string completionMessage = "Congratulations!";
-    [SerializeField] private string failureTitle = "Level Failed";
-    [SerializeField] private string failureMessage = "You touched the flames.";
+    [SerializeField] private string failureTitle = "Take a breath";
+    [SerializeField] private string failureMessage = "Choose where you want to try again.";
     [SerializeField] private string menuSceneName = "LevelMenu";
-
-    [Header("Checkpoint Restart")]
-    [SerializeField] private string checkpointRestartSceneName = "Thirddev";
 
     [Header("Colors")]
     [SerializeField] private Color panelColor = new(0.08f, 0.11f, 0.18f, 0.75f);
@@ -32,7 +29,23 @@ public class LevelUIController : MonoBehaviour
     private Text completionText;
     private Text failureTitleText;
     private Text failureMessageText;
+    private GameObject failureCheckpointButton;
+    private GameObject failureMenuButton;
     private GameObject failureOverlay;
+    private GameObject menuOverlay;
+
+    public static LevelUIController FindOrCreate()
+    {
+        LevelUIController existing = FindFirstObjectByType<LevelUIController>();
+
+        if (existing != null)
+        {
+            return existing;
+        }
+
+        GameObject controllerObject = new("LevelUIController");
+        return controllerObject.AddComponent<LevelUIController>();
+    }
 
     private void Awake()
     {
@@ -49,24 +62,60 @@ public class LevelUIController : MonoBehaviour
 
     public void RestartButtonPressed()
     {
-        if (UsesCheckpointRestart())
+        RestartLevel();
+    }
+
+    public void ToggleMenu()
+    {
+        if (menuOverlay == null)
         {
-            RestartFromLastCheckpoint();
             return;
         }
 
-        RestartLevel();
+        if (menuOverlay.activeSelf)
+        {
+            HideMenu();
+            return;
+        }
+
+        ShowMenu();
+    }
+
+    public void ShowMenu()
+    {
+        if (menuOverlay == null || failureOverlay != null && failureOverlay.activeSelf)
+        {
+            return;
+        }
+
+        menuOverlay.SetActive(true);
+        Time.timeScale = 0f;
+    }
+
+    public void HideMenu()
+    {
+        if (menuOverlay != null)
+        {
+            menuOverlay.SetActive(false);
+        }
+
+        Time.timeScale = 1f;
     }
 
     public void RestartFromLastCheckpoint()
     {
-        if (!UsesCheckpointRestart())
+        if (!CheckpointManager.HasCheckpointForCurrentScene())
         {
             RestartLevel();
             return;
         }
 
         ReloadCurrentScene();
+    }
+
+    public void RestartFailureAttempt()
+    {
+        RestartFromLastCheckpoint();
     }
 
     private void ReloadCurrentScene()
@@ -110,15 +159,22 @@ public class LevelUIController : MonoBehaviour
             completionText.gameObject.SetActive(false);
         }
 
+        if (menuOverlay != null)
+        {
+            menuOverlay.SetActive(false);
+        }
+
         if (failureTitleText != null)
         {
-            failureTitleText.text = title;
+            failureTitleText.text = GetSoftFailureTitle(title);
         }
 
         if (failureMessageText != null)
         {
             failureMessageText.text = message;
         }
+
+        RefreshFailureButtons();
 
         if (failureOverlay != null)
         {
@@ -142,12 +198,14 @@ public class LevelUIController : MonoBehaviour
         Canvas canvas = CreateCanvas();
 
         CreateHeaderPanel(canvas.transform);
-        CreateRestartButton(canvas.transform);
+        CreateMenuButton(canvas.transform);
         CreateControlsHint(canvas.transform);
         completionText = CreateCompletionLabel(canvas.transform);
+        menuOverlay = CreateMenuOverlay(canvas.transform);
         failureOverlay = CreateFailureOverlay(canvas.transform);
         RefreshUiText();
         completionText.gameObject.SetActive(false);
+        menuOverlay.SetActive(false);
         failureOverlay.SetActive(false);
     }
 
@@ -171,21 +229,28 @@ public class LevelUIController : MonoBehaviour
 
     private void CreateHeaderPanel(Transform parent)
     {
+        bool hasObjective = !string.IsNullOrWhiteSpace(levelObjective);
         GameObject panel = CreatePanel("HeaderPanel", parent, panelColor);
         RectTransform rect = panel.GetComponent<RectTransform>();
         rect.anchorMin = new Vector2(0f, 1f);
         rect.anchorMax = new Vector2(0f, 1f);
         rect.pivot = new Vector2(0f, 1f);
         rect.anchoredPosition = new Vector2(22f, -22f);
-        rect.sizeDelta = new Vector2(620f, 140f);
+        rect.sizeDelta = hasObjective ? new Vector2(620f, 140f) : new Vector2(620f, 76f);
 
         titleText = CreateText("Title", panel.transform, levelTitle, 48, FontStyle.Bold, accentColor);
         RectTransform titleRect = titleText.GetComponent<RectTransform>();
-        titleRect.anchorMin = new Vector2(0f, 1f);
-        titleRect.anchorMax = new Vector2(1f, 1f);
-        titleRect.pivot = new Vector2(0.5f, 1f);
-        titleRect.offsetMin = new Vector2(20f, -48f);
-        titleRect.offsetMax = new Vector2(-20f, -8f);
+        titleRect.anchorMin = hasObjective ? new Vector2(0f, 1f) : Vector2.zero;
+        titleRect.anchorMax = hasObjective ? new Vector2(1f, 1f) : Vector2.one;
+        titleRect.pivot = hasObjective ? new Vector2(0.5f, 1f) : new Vector2(0.5f, 0.5f);
+        titleRect.offsetMin = hasObjective ? new Vector2(20f, -48f) : new Vector2(20f, 0f);
+        titleRect.offsetMax = hasObjective ? new Vector2(-20f, -8f) : new Vector2(-20f, 0f);
+        titleText.alignment = hasObjective ? TextAnchor.UpperLeft : TextAnchor.MiddleLeft;
+
+        if (!hasObjective)
+        {
+            return;
+        }
 
         objectiveText = CreateText("Subtitle", panel.transform, levelObjective, 40, FontStyle.Normal, Color.white);
         RectTransform subtitleRect = objectiveText.GetComponent<RectTransform>();
@@ -195,9 +260,9 @@ public class LevelUIController : MonoBehaviour
         subtitleRect.offsetMax = new Vector2(-20f, -48f);
     }
 
-    private void CreateRestartButton(Transform parent)
+    private void CreateMenuButton(Transform parent)
     {
-        GameObject buttonObject = new("RestartButton");
+        GameObject buttonObject = new("MenuButton");
         buttonObject.transform.SetParent(parent, false);
 
         Image image = buttonObject.AddComponent<Image>();
@@ -205,7 +270,7 @@ public class LevelUIController : MonoBehaviour
 
         Button button = buttonObject.AddComponent<Button>();
         button.targetGraphic = image;
-        button.onClick.AddListener(RestartButtonPressed);
+        button.onClick.AddListener(ToggleMenu);
 
         RectTransform rect = buttonObject.GetComponent<RectTransform>();
         rect.anchorMin = new Vector2(1f, 1f);
@@ -214,13 +279,46 @@ public class LevelUIController : MonoBehaviour
         rect.anchoredPosition = new Vector2(-22f, -22f);
         rect.sizeDelta = new Vector2(190f, 60f);
 
-        Text label = CreateText("Label", buttonObject.transform, "Restart", 26, FontStyle.Bold, buttonTextColor);
+        Text label = CreateText("Label", buttonObject.transform, "Menu", 26, FontStyle.Bold, buttonTextColor);
         RectTransform labelRect = label.GetComponent<RectTransform>();
         labelRect.anchorMin = Vector2.zero;
         labelRect.anchorMax = Vector2.one;
         labelRect.offsetMin = Vector2.zero;
         labelRect.offsetMax = Vector2.zero;
         label.alignment = TextAnchor.MiddleCenter;
+    }
+
+    private GameObject CreateMenuOverlay(Transform parent)
+    {
+        GameObject overlay = CreatePanel("MenuOverlay", parent, overlayColor);
+        RectTransform overlayRect = overlay.GetComponent<RectTransform>();
+        overlayRect.anchorMin = Vector2.zero;
+        overlayRect.anchorMax = Vector2.one;
+        overlayRect.offsetMin = Vector2.zero;
+        overlayRect.offsetMax = Vector2.zero;
+
+        GameObject panel = CreatePanel("MenuPanel", overlay.transform, panelColor);
+        RectTransform panelRect = panel.GetComponent<RectTransform>();
+        panelRect.anchorMin = new Vector2(0.5f, 0.5f);
+        panelRect.anchorMax = new Vector2(0.5f, 0.5f);
+        panelRect.pivot = new Vector2(0.5f, 0.5f);
+        panelRect.anchoredPosition = Vector2.zero;
+        panelRect.sizeDelta = new Vector2(460f, 360f);
+
+        Text title = CreateText("MenuTitle", panel.transform, "Menu", 52, FontStyle.Bold, accentColor);
+        RectTransform titleRect = title.GetComponent<RectTransform>();
+        titleRect.anchorMin = new Vector2(0f, 1f);
+        titleRect.anchorMax = new Vector2(1f, 1f);
+        titleRect.pivot = new Vector2(0.5f, 1f);
+        titleRect.offsetMin = new Vector2(40f, -88f);
+        titleRect.offsetMax = new Vector2(-40f, -24f);
+        title.alignment = TextAnchor.MiddleCenter;
+
+        CreateOverlayButton(panel.transform, "ResumeButton", "Continue", new Vector2(0f, -28f), HideMenu);
+        CreateOverlayButton(panel.transform, "RestartButton", "Restart", new Vector2(0f, -102f), RestartLevel);
+        CreateOverlayButton(panel.transform, "LevelMenuButton", "Level Menu", new Vector2(0f, -176f), LoadMenu);
+
+        return overlay;
     }
 
     private GameObject CreateFailureOverlay(Transform parent)
@@ -238,9 +336,9 @@ public class LevelUIController : MonoBehaviour
         panelRect.anchorMax = new Vector2(0.5f, 0.5f);
         panelRect.pivot = new Vector2(0.5f, 0.5f);
         panelRect.anchoredPosition = Vector2.zero;
-        panelRect.sizeDelta = new Vector2(620f, 460f);
+        panelRect.sizeDelta = new Vector2(620f, 520f);
 
-        failureTitleText = CreateText("FailureTitle", panel.transform, failureTitle, 52, FontStyle.Bold, dangerColor);
+        failureTitleText = CreateText("FailureTitle", panel.transform, GetSoftFailureTitle(failureTitle), 52, FontStyle.Bold, dangerColor);
         RectTransform titleRect = failureTitleText.GetComponent<RectTransform>();
         titleRect.anchorMin = new Vector2(0f, 1f);
         titleRect.anchorMax = new Vector2(1f, 1f);
@@ -258,21 +356,15 @@ public class LevelUIController : MonoBehaviour
         messageRect.offsetMax = new Vector2(-54f, -98f);
         failureMessageText.alignment = TextAnchor.MiddleCenter;
 
-        if (UsesCheckpointRestart())
-        {
-            CreateOverlayButton(panel.transform, "CheckpointButton", "Restart from checkpoint", new Vector2(0f, -82f), RestartFromLastCheckpoint);
-            CreateOverlayButton(panel.transform, "MenuButton", "Menu", new Vector2(0f, -156f), LoadMenu);
-        }
-        else
-        {
-            CreateOverlayButton(panel.transform, "TryAgainButton", "Restart", new Vector2(0f, -82f), RestartLevel);
-            CreateOverlayButton(panel.transform, "MenuButton", "Menu", new Vector2(0f, -156f), LoadMenu);
-        }
+        CreateOverlayButton(panel.transform, "RestartButton", "Restart", new Vector2(0f, -82f), RestartFailureAttempt);
+        failureCheckpointButton = CreateOverlayButton(panel.transform, "CheckpointButton", "Restart from checkpoint", new Vector2(0f, -156f), RestartFromLastCheckpoint).transform.parent.gameObject;
+        failureMenuButton = CreateOverlayButton(panel.transform, "MenuButton", "Menu", new Vector2(0f, -230f), LoadMenu).transform.parent.gameObject;
+        RefreshFailureButtons();
 
         return overlay;
     }
 
-    private void CreateOverlayButton(Transform parent, string name, string labelText, Vector2 anchoredPosition, UnityEngine.Events.UnityAction onClick)
+    private Text CreateOverlayButton(Transform parent, string name, string labelText, Vector2 anchoredPosition, UnityEngine.Events.UnityAction onClick)
     {
         GameObject buttonObject = new(name);
         buttonObject.transform.SetParent(parent, false);
@@ -298,10 +390,16 @@ public class LevelUIController : MonoBehaviour
         labelRect.offsetMin = Vector2.zero;
         labelRect.offsetMax = Vector2.zero;
         label.alignment = TextAnchor.MiddleCenter;
+        return label;
     }
 
     private void CreateControlsHint(Transform parent)
     {
+        if (string.IsNullOrWhiteSpace(controlsHint))
+        {
+            return;
+        }
+
         GameObject panel = CreatePanel("ControlsHint", parent, panelColor);
         RectTransform rect = panel.GetComponent<RectTransform>();
         rect.anchorMin = new Vector2(0.5f, 0f);
@@ -404,8 +502,36 @@ public class LevelUIController : MonoBehaviour
         eventSystem.AddComponent<StandaloneInputModule>();
     }
 
-    private bool UsesCheckpointRestart()
+    private void RefreshFailureButtons()
     {
-        return SceneManager.GetActiveScene().name == checkpointRestartSceneName;
+        if (failureCheckpointButton == null)
+        {
+            return;
+        }
+
+        bool hasCheckpoint = CheckpointManager.HasCheckpointForCurrentScene();
+        failureCheckpointButton.SetActive(hasCheckpoint);
+
+        if (failureMenuButton != null)
+        {
+            RectTransform menuRect = failureMenuButton.GetComponent<RectTransform>();
+            menuRect.anchoredPosition = hasCheckpoint ? new Vector2(0f, -230f) : new Vector2(0f, -156f);
+        }
+    }
+
+    private static string GetSoftFailureTitle(string title)
+    {
+        if (string.IsNullOrWhiteSpace(title))
+        {
+            return "Take a breath";
+        }
+
+        string trimmed = title.Trim();
+        return trimmed.Equals("Game over", System.StringComparison.OrdinalIgnoreCase)
+            || trimmed.Equals("Gameover", System.StringComparison.OrdinalIgnoreCase)
+            || trimmed.Equals("Level Failed", System.StringComparison.OrdinalIgnoreCase)
+            || trimmed.Equals("Dead", System.StringComparison.OrdinalIgnoreCase)
+            ? "Take a breath"
+            : title;
     }
 }

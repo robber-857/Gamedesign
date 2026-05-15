@@ -306,7 +306,7 @@ public class DownTrapHitDetector : MonoBehaviour
         }
 
         hasFailed = true;
-        LevelUIController ui = FindFirstObjectByType<LevelUIController>();
+        LevelUIController ui = LevelUIController.FindOrCreate();
 
         if (ui != null)
         {
